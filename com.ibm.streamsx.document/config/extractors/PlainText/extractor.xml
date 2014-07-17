@@ -1,0 +1,4 @@
+<ExtractorConfiguration>
+  <name>PlainText</name>
+  <className>com.ibm.streamsx.document.extract.plugins.PlainText.PlainTextExtractror</className>  
+</ExtractorConfiguration>

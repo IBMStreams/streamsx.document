@@ -1,0 +1,30 @@
+namespace com.ibm.streamsx.document.extract;
+
+/**
+ * Document metadata-only structure
+ */
+type
+	DocumentMetadata_t = 
+		rstring docId, 
+		list<ustring> msgs, 
+		map<ustring, list<ustring>> props;
+
+/**
+ * Document data structure
+ */
+type
+	DocumentData_t = 		
+		ustring;
+
+/**
+ * Full(data and metadata) document structure
+ */		
+ type
+ 	Document_t = 
+ 		rstring docId, 
+		list<ustring> msgs, 
+		map<ustring, list<ustring>> props,
+		DocumentData_t text;
+
+
+ 		

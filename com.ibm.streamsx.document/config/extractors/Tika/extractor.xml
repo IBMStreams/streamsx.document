@@ -1,0 +1,4 @@
+<ExtractorConfiguration>
+  <name>Tika</name>
+  <className>com.ibm.streamsx.document.extract.plugins.Tika.TikaExtractror</className>   
+</ExtractorConfiguration>
