@@ -1,5 +1,0 @@
-<ExtractorConfiguration>
-  <name>TrueZip</name>
-  <className>com.ibm.streamsx.document.extract.plugins.TrueZip.TrueZipExtractor</className>
-  <execMode>IN_PROCESS</execMode>  
-</ExtractorConfiguration>
