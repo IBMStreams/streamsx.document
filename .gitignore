@@ -1,0 +1,46 @@
+# project specific excludes
+com.ibm.streamsx.document/com.ibm.streamsx.document.extract/DocumentSource
+com.ibm.streamsx.document/doc/
+com.ibm.streamsx.document/samples/
+
+
+# streams-specific excludes
+$StreamsModel.java
+toolkit.xml
+impl/java/bin/
+*.pm
+.settings
+.toolkitList
+# If you want to include a perl module, do
+# !foo.pm
+
+# samples settings
+samples/*/output
+samples/*/toolkit.xml
+samples/*/doc/
+samples/*/data/*.out
+samples/*/output_*
+
+
+## java excludes
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+## C++ excludes
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
