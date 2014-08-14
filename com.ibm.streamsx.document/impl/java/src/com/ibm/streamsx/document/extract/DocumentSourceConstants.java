@@ -28,7 +28,7 @@ public class DocumentSourceConstants {
 								               "For that purpose the operator utilizes different open source libraries to allow parsing of different document types. " +
 								               "Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip.\\n\\n" +								                								              
 								               "**Rrerequisities**" +
-								               "\\n\\n The operator requires **DE_TOOLKIT_HOME** envrionment variable to be defined." +
+								               "\\n\\n The operator requires DE_TOOLKIT_HOME envrionment variable to be defined." +
 								               "\\n The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path." +
 								               "\\n\\n**Examples**" + 
 								               "\\n\\nIn the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata." +								               
