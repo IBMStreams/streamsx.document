@@ -32,9 +32,9 @@
 		<replace file="${toolkit}/info.xml" token="__dev__" value="commit_${commithash}" summary="yes" />
 
 		<!-- Extract info from the toolkit's info.xml -->
-		<xmlproperty file="${toolkit}/info.xml" prefix="tkinfo" keepRoot="no" />
-
-		<echo message="Toolkit Version: ${tkinfo.identity.version}" />
+		<xmlproperty file="${toolkit}/info.xml" prefix="tkinfo" keepRoot="no"/>
+		<echoproperties destfile="/tmp/props.txt"/>
+		<echo message="Toolkit Version: ${tkinfo.info:identity.info:version}" />
 		<echo message="Git Hash: ${commithash}" />
 
 	</target>
@@ -65,7 +65,7 @@
 	<target name="spldoc_work" depends="setcommitversion, samples">
 		<antcall target="spldoctoolkit">
 			<param name="tkdir" value="${toolkit}" />
-			<param name="tktitle" value="IBMStreams ${tkinfo.identity.name} Toolkit" />
+			<param name="tktitle" value="IBMStreams ${tkinfo.info:identity.info:name} Toolkit" />
 		</antcall>
 		<subant target="spldoctoolkit" genericantfile="${basedir}/build.xml">
 			<dirset dir="samples" includes="*" />
@@ -122,7 +122,7 @@
 	<!-- Targets to build releases -->
 	<target name="release" depends="clean, all, spldoc, toolkitIndexOnly">		
 		<mkdir dir="${tmp}" />
-		<property name="releasefilename" value="${tmp}/streamx.document.toolkits-${tkinfo.identity.version}-${DSTAMP}-${TSTAMP}.tgz" />
+		<property name="releasefilename" value="${tmp}/streamx.document.toolkits-${tkinfo.info:identity.info:version}-${DSTAMP}-${TSTAMP}.tgz" />
 		<tar compression="gzip" longfile="gnu"
              destfile="${releasefilename}"
     	     basedir="${basedir}"
