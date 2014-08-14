@@ -4,14 +4,14 @@
 // * others. All Rights Reserved. *
 // *******************************************************************************
 -->
-<project name="streamsx.hdfs" default="all" basedir=".">
+<project name="streamsx.document" default="all" basedir=".">
 	<description>
-        Build file for streamsx.hdfs project, built the toolkits and samples.
+        Build file for streamsx.document project, built the toolkits and samples.
     </description>
 	<!-- set global properties for this build -->
 	<property environment="env" />
 	<property name="streams.install" value="${env.STREAMS_INSTALL}" />
-	<property name="toolkit" location="com.ibm.streamsx.hdfs" />
+	<property name="toolkit" location="com.ibm.streamsx.document" />
 	<property name="toolkit.test" location="tests" />
 	<property name="tmp" location="tmp" />
 
@@ -122,7 +122,7 @@
 	<!-- Targets to build releases -->
 	<target name="release" depends="clean, all, spldoc, toolkitIndexOnly">		
 		<mkdir dir="${tmp}" />
-		<property name="releasefilename" value="${tmp}/streamx.hdfs.toolkits-${tkinfo.identity.version}-${DSTAMP}-${TSTAMP}.tgz" />
+		<property name="releasefilename" value="${tmp}/streamx.document.toolkits-${tkinfo.identity.version}-${DSTAMP}-${TSTAMP}.tgz" />
 		<tar compression="gzip" longfile="gnu"
              destfile="${releasefilename}"
     	     basedir="${basedir}"
