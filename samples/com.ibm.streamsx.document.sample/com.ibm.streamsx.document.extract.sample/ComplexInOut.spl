@@ -1,0 +1,82 @@
+namespace com.ibm.streamsx.document.extract.sample;
+
+use com.ibm.streamsx.document.extract::DocumentSource ;
+use com.ibm.streamsx.document.extract::Document_t ;
+
+composite ComplexInOut
+{
+
+	type
+		MyTypeIn_t =  timestamp ts,
+		              rstring str,
+		              blob myb,
+		              int32 i1,
+		              blob b; // attribute containing the binary document
+	
+	
+		MyTypeOut_t = timestamp ts,
+		 			  rstring str,
+		 			  blob myb,
+					  int32 i1,
+		              Document_t d;
+		
+	graph
+		
+		stream<blob document> BinaryDoc = FileSource()
+		{
+			param
+				file : "docs/seat_plan.xls" ;
+				format : block ;
+				blockSize : 10485799u ;
+		}
+		
+		stream<MyTypeIn_t> ComplexType = Functor(BinaryDoc) {		            
+		    output
+		        ComplexType : ts = getTimestamp(), 
+		                      str = "external string", 
+		                      myb = convertToBlob("blob string"),  
+		                      i1 = 10, 
+ 			      			  b = document;  // populate the attribute with the binary document content
+		}
+		
+		stream<MyTypeOut_t> DocsFromBinary = DocumentSource(ComplexType)
+		{ 
+			param
+				binaryDocumentAttr: "b"; // specify the name of the attribute containing the binary document
+				extractedDocumentAttr: "d"; // specify the name of the attribute of type Document_t that would be populated with an extraction results
+				extractionType: "All";	
+				returnSystemMessages: true;
+				returnFileDetails: true;			
+				returnEmbeddedDocuments: true;
+		}
+		
+		() as DocDataAndMetadataSink = Custom(DocsFromBinary as Docs)
+		{
+			logic
+				onTuple Docs :
+				{
+					printStringLn("=========== Document with ID '" +(rstring)d.docId + "' ====================== ") ;
+					mutable uint32 i = 0, j = 0 ;
+					printStringLn("--> Messages ") ;
+					for(ustring msg in d.msgs)
+					{
+						printStringLn("msg[" +(rstring) i + "]: " +(rstring) msg) ;
+						i ++ ;
+					}
+
+					printStringLn("--> Properties ") ;
+					for(ustring prop in d.props)
+					{
+						printStringLn("prop[" +(rstring) prop + "]: " +(rstring) d.props [prop]) ;
+						j ++ ;
+					}
+
+					if(length(d.text) > 0)
+					{
+						printStringLn("--> Text ") ;
+						printStringLn((rstring) d.text) ;
+					}
+
+				}
+		}
+}

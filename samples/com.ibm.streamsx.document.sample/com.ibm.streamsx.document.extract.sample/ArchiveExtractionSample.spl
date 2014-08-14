@@ -1,0 +1,55 @@
+namespace com.ibm.streamsx.document.extract.sample;
+
+use com.ibm.streamsx.document.extract::DocumentSource ;
+use com.ibm.streamsx.document.extract::Document_t ;
+
+
+composite ArchiveExtractionSample
+{
+	graph
+		stream<Document_t> RARDocumentSource = DocumentSource()
+		{
+			param
+				file : "docs/doc_samples.rar" ;
+				extractionType : "All" ;
+				returnFileDetails : true ;
+				returnSystemMessages : true ;
+				returnEmbeddedDocuments: true;								
+		}
+
+
+		() as DocDataAndMetadataSink = Custom(RARDocumentSource as Docs)
+		{
+			logic
+				onTuple Docs :
+				{
+					printStringLn("=========== Document with ID '" +(rstring) Docs.docId +
+						"' ====================== ") ;
+					mutable uint32 i = 0, j = 0 ;
+					printStringLn("--> Messages ") ;
+					for(ustring msg in msgs)
+					{
+						printStringLn("msg[" +(rstring) i + "]: " +(rstring) msg) ;
+						i ++ ;
+					}
+
+					printStringLn("--> Properties ") ;
+					for(ustring prop in props)
+					{
+						printStringLn("prop[" +(rstring) prop + "]: " +(rstring) props [ prop
+							]) ;
+						j ++ ;
+					}
+
+					if(length(text) > 0)
+					{
+						printStringLn("--> Text ") ;
+						printStringLn((rstring) text) ;
+					}
+
+				}
+
+		}
+
+}
+
