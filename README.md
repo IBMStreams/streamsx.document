@@ -15,6 +15,6 @@ Out of the box the toolkit provides the following extractors:
  *  JUnrar – RAR files
  *  Plain Text – Text files of various encodings (ASCII, UTF-8, UTF-16, local encodings)
 
-The toolkit documentation is available at:
+The toolkit's home page is available at:
 http://ibmstreams.github.io/streamsx.document/
 
