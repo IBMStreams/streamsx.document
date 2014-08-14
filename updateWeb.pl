@@ -168,4 +168,4 @@ sub main() {
     }
 }
 
-main()
+main();
