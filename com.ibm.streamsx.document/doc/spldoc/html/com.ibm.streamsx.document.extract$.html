@@ -27,7 +27,7 @@
 
 <div class="section">
 <p class="p">
-<a class="xref" href="toolkit.html">
+<a class="xref" href="toolkit.html" title="com.ibm.streamsx.document">
 com.ibm.streamsx.document
 </a>
 -&gt; com.ibm.streamsx.document.extract</p>
@@ -37,7 +37,7 @@ com.ibm.streamsx.document
 <div class="section"><h2 class="title sectiontitle splhead-1">Operators</h2>
   
 <ul class="sl simple">
-<li class="sli"><strong class="ph b"><a class="xref" href="com.ibm.streamsx.document.extract$DocumentSource.html">DocumentSource</a></strong>: The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. <strong class="ph b">Rrerequisities</strong>  The operator requires <strong class="ph b">DE_TOOLKIT_HOME</strong> envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. <strong class="ph b">Examples</strong> In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata.   stream&lt;Document_t&gt; RARDocumentSource = DocumentSource()
+<li class="sli"><strong class="ph b"><a class="xref" href="com.ibm.streamsx.document.extract$DocumentSource.html">DocumentSource</a></strong>: The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. <strong class="ph b">Rrerequisities</strong>  The operator requires DE_TOOLKIT_HOME envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. <strong class="ph b">Examples</strong> In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata.   stream&lt;Document_t&gt; RARDocumentSource = DocumentSource()
   {
          param
              file : "docs/doc_samples.rar";

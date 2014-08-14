@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
 "/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
-<reference id="spldoc_toolkit__toolkit__1.0.0">
-<title outputclass="spltoolkitname">com.ibm.streamsx.document</title>
+<reference id="spldoc_toolkit__toolkit__1.0.1">
+<title>IBMStreams com.ibm.streamsx.document Toolkit</title>
+<shortdesc outputclass="spltoolkitname">com.ibm.streamsx.document</shortdesc>
 <refbody>
 <section>
 <title outputclass="splhead-1">General Information</title>
@@ -10,11 +11,15 @@
 <dl>
   <dlentry>
   <dt>Version</dt>
-  <dd>1.0.0</dd>
+  <dd>1.0.1</dd>
   </dlentry>
   <dlentry>
   <dt>Required Product Version</dt>
   <dd>3.2.1.0</dd>
+  </dlentry>
+  <dlentry>
+  <dt>Author</dt>
+  <dd>IBMStreams Open Source Community at GitHub - https://github.com/IBMStreams/streamsx.document</dd>
   </dlentry>
 </dl>
 </section>

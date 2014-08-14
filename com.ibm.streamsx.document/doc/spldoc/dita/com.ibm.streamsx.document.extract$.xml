@@ -18,7 +18,7 @@ com.ibm.streamsx.document
 <section>
   <title outputclass="splhead-1">Operators</title>
 <sl>
-<sli><b><xref href="com.ibm.streamsx.document.extract$DocumentSource.xml">DocumentSource</xref></b>: The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. <b>Rrerequisities</b>  The operator requires <b>DE_TOOLKIT_HOME</b> envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. <b>Examples</b> In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata. <![CDATA[  stream<Document_t> RARDocumentSource = DocumentSource()
+<sli><b><xref href="com.ibm.streamsx.document.extract$DocumentSource.xml">DocumentSource</xref></b>: The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. <b>Rrerequisities</b>  The operator requires DE_TOOLKIT_HOME envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. <b>Examples</b> In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata. <![CDATA[  stream<Document_t> RARDocumentSource = DocumentSource()
   {
          param
              file : "docs/doc_samples.rar";

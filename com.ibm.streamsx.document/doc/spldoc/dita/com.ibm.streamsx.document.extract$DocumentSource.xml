@@ -17,7 +17,7 @@ com.ibm.streamsx.document
 </p>
 <p><b>Rrerequisities</b> 
 </p>
-<p> The operator requires <b>DE_TOOLKIT_HOME</b> envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. 
+<p> The operator requires DE_TOOLKIT_HOME envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. 
 </p>
 <p><b>Examples</b> 
 </p>
