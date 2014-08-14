@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<srcCode:sourceModel xmlns:srcCode="http://www.ibm.com/xmlns/prod/streams/spl/sourceCode" xmlns:common="http://www.ibm.com/xmlns/prod/streams/spl/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <srcCode:sourceFile uri="com.ibm.streamsx.document.extract/Types.spl">
+    <srcCode:compilationUnit>
+      <srcCode:splNamespace column="10" line="1" name="com.ibm.streamsx.document.extract"/>
+      <srcCode:definitions>
+        <srcCode:typeDefinition endColumn="36" endLine="10" name="DocumentMetadata_t" startColumn="1" startLine="6" value="rstring docId, list&lt;ustring> msgs, map&lt;ustring, list&lt;ustring>> props">
+          <srcCode:splDoc>
+            <srcCode:description>
+              <srcCode:description>Document metadata-only structure
+</srcCode:description>
+            </srcCode:description>
+          </srcCode:splDoc>
+        </srcCode:typeDefinition>
+        <srcCode:typeDefinition endColumn="10" endLine="17" name="DocumentData_t" startColumn="1" startLine="15" value="ustring">
+          <srcCode:splDoc>
+            <srcCode:description>
+              <srcCode:description>Document data structure
+</srcCode:description>
+            </srcCode:description>
+          </srcCode:splDoc>
+        </srcCode:typeDefinition>
+        <srcCode:typeDefinition endColumn="22" endLine="27" name="Document_t" startColumn="2" startLine="22" value="rstring docId, list&lt;ustring> msgs, map&lt;ustring, list&lt;ustring>> props, DocumentData_t text">
+          <srcCode:splDoc>
+            <srcCode:description>
+              <srcCode:description>Full(data and metadata) document structure
+</srcCode:description>
+            </srcCode:description>
+          </srcCode:splDoc>
+        </srcCode:typeDefinition>
+      </srcCode:definitions>
+    </srcCode:compilationUnit>
+  </srcCode:sourceFile>
+
+</srcCode:sourceModel>
