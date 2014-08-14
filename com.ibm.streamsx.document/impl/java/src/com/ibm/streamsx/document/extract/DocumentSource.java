@@ -82,7 +82,7 @@ import com.ibm.streamsx.document.extract.core.logging.DECoreLogger;
 vmArgs = { "-Djava.util.Arrays.useLegacyMergeSort=true" })
 @InputPortSet(description = "Optional port for document's ingestion", optional = true, cardinality=1, windowingMode = WindowMode.NonWindowed, windowPunctuationInputMode = WindowPunctuationInputMode.Oblivious)
 @OutputPortSet(description = "Mandatory output port for metadata and text content", cardinality = 1, optional = false, windowPunctuationOutputMode = WindowPunctuationOutputMode.Generating)
-@Libraries({ "impl/lib/*", "config/", "lib/*" })
+@Libraries({ "impl/lib/*", "impl/ext/lib/*", "config/", "lib/*" })
 public class DocumentSource extends AbstractOperator {
 
 	
