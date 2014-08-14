@@ -21,7 +21,7 @@ com.ibm.streamsx.document
 </p>
 <p><b>Examples</b> 
 </p>
-<p>In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata. 
+<p>In the following example, the DocumentSource operator extracts documents from archived (RAR) file including document content and metadata. 
 </p>
 <p>
 <codeblock>
