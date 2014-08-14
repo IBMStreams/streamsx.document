@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
+"/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
+<reference id ="spldoc_operator__com.ibm.streamsx.document.extract__DocumentSource">
+<title>com.ibm.streamsx.document.extract::DocumentSource</title>
+<refbody>
+<section>
+<p>
+<xref href="toolkit.xml">
+com.ibm.streamsx.document
+</xref>
+-&gt; <xref href="com.ibm.streamsx.document.extract$.xml">com.ibm.streamsx.document.extract</xref>-&gt; DocumentSource</p>
+</section>
+<section>
+
+<p>The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. 
+</p>
+<p><b>Rrerequisities</b> 
+</p>
+<p> The operator requires <b>DE_TOOLKIT_HOME</b> envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. 
+</p>
+<p><b>Examples</b> 
+</p>
+<p>In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata. 
+</p>
+<p>
+<codeblock>
+<![CDATA[  stream<Document_t> RARDocumentSource = DocumentSource()
+  {
+         param
+             file : "docs/doc_samples.rar";
+	            extractionType : "All";
+	            returnEmbeddedDocuments: true;
+  }
+]]></codeblock>
+
+</p>
+</section>
+<section outputclass="splprimop">
+<object type="image/svg+xml" data="../image/com.ibm.streamsx.document.extract$DocumentSource.svg" width="672" height="112">
+<desc>Primitive operator image not displayed. Problem loading file: ../image/com.ibm.streamsx.document.extract$DocumentSource.svg
+</desc>
+</object>
+</section>
+<section>
+<title outputclass="splhead-1">Summary</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Ports</dt>
+  <dd>This operator has 1 input port and 1 output port.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Windowing</dt>
+  <dd>This operator does not accept any windowing configurations.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Parameters</dt>
+  <dd>This operator supports 9 parameters. (<tt>binaryDocumentAttr, configFolder, extractedDocumentAttr, extractionType, extractorName, file, returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</tt>)
+</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Metrics</dt>
+  <dd>This operator does not report any metrics.</dd>
+ </dlentry>
+</dl></section>
+<section>
+<title outputclass="splhead-1">Properties</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Implementation</dt>
+  <dd>Java</dd>
+ </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/input_port_set">Input Ports</xref></b></p><dl>
+  <dlentry>
+   <dt>Ports (0)</dt>
+   <dd>
+
+<p>Optional port for document's ingestion
+</p>   </dd>
+  </dlentry>
+    <dlentry>
+      <dt>Windowing</dt>
+      <dd>
+      </dd>
+    </dlentry>
+    <dlentry>
+      <dt>Properties</dt>
+      <dd>
+   <sl>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/input_port_set__optional">Optional</xref>: true
+     </sli>
+   </sl>
+   <sl>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/input_port_set__controlport">ControlPort</xref>: false
+</sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/input_port_set__windowingmode">WindowingMode</xref>: NonWindowed
+</sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/input_port_set__windowpunctuationinputmode">WindowPunctuationInputMode</xref>: Oblivious
+</sli>
+   </sl>
+      </dd>
+    </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/output_port_set">Output Ports</xref></b></p><dl>
+  <dlentry>
+     <dt>Assignments</dt>
+       <dd>Java operators do not support output assignments.
+       </dd>
+  </dlentry>
+</dl>
+<dl>
+  <dlentry>
+   <dt>Ports (0)</dt>
+   <dd>
+
+<p>Mandatory output port for metadata and text content
+</p>
+<p></p>
+   <dl>
+    <dlentry>
+      <dt>Properties</dt>
+      <dd>
+   <sl>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/output_port_set__optional">Optional</xref>: false
+     </sli>
+   </sl>
+   <sl>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/output_port_set__windowpunctuationoutputmode">WindowPunctuationOutputMode</xref>: Generating
+     </sli>
+   </sl>
+      </dd>
+    </dlentry>
+   </dl>
+   <p></p>
+   </dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters">Parameters</xref></b></p>This operator supports 9 parameters.<dl>
+<dlentry>
+<dt id="parameter_binaryDocumentAttr"><tt>binaryDocumentAttr</tt></dt>
+<dd>
+<p>Input schema attribute name with a binary document data.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_configFolder"><tt>configFolder</tt></dt>
+<dd>
+<p>Allows to specify config folder absolute location. If not specified ${file:DE_TOOLKIT_HOME}/config folder is used by the operator.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_extractedDocumentAttr"><tt>extractedDocumentAttr</tt></dt>
+<dd>
+<p>Output schema attribute for an extraction results population.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_extractionType"><tt>extractionType</tt></dt>
+<dd>
+<p>Specifies the type of data that should be extracted from a document.The type might have one of the following values: 'Text','Metadata' and 'All'.If 'Text' value is specified the operator will extract text content only from a given document.If 'Metadata' value is specified the operator will extract document metadata only from a given document.If 'All' value is specified the operator will extract both text content and document metadata.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_extractorName"><tt>extractorName</tt></dt>
+<dd>
+<p>By default the operator selects extractor per document according to mime-type to extractor mapping  specified in the config/extractor_mapping.xml file. The parameter allows to overwrite the mapping by explicit  extractor name specification.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_file"><tt>file</tt></dt>
+<dd>
+<p>The parameter might be specified only when the operator runs as a source operator, i.e. has no input port. The paramater value specifies the source file path.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_returnEmbeddedDocuments"><tt>returnEmbeddedDocuments</tt></dt>
+<dd>
+<p>When the parameter's value is 'true' the operator extracts embedded documents if found.Each embedded document is submitted in a separate tuple.The default is 'false'.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: boolean
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_returnFileDetails"><tt>returnFileDetails</tt></dt>
+<dd>
+<p>When the parameter's value is 'true' the operator extracts file details (location, name, size) as a part of document metadata. The default is 'false'.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: boolean
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_returnSystemMessages"><tt>returnSystemMessages</tt></dt>
+<dd>
+<p>When the parameter's value is 'true' the operator extracts system messages as a part of document metadata. The default is 'false'.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: boolean
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/context__dependencies">Libraries</xref></b></p>
+ <dl>
+ <dlentry>
+  <dt>Operator class library
+  </dt>
+  <dd/>
+  <dd><xref href="OperatorModel.xml#spldoc_reference_operator_model/context__dependencies__managedlibrary__libpath">Library Path</xref>: <tt>../../impl/lib/streamsx.document.jar, ../../impl/lib/*, ../../impl/ext/lib/*, ../../config/, ../../lib/*</tt></dd>
+ </dlentry>
+ </dl>
+</section>
+</refbody>
+</reference>
+

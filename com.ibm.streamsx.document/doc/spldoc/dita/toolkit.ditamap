@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//ENs"
+"/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/map.dtd">
+<map id="spldoc_map__toolkit__1.0.0">
+<title>com.ibm.streamsx.document</title>
+<topicref navtitle="com.ibm.streamsx.document 1.0.0" locktitle="yes" href="toolkit.xml" toc="yes" linking="normal">
+<topichead><topicmeta><navtitle>Namespaces</navtitle></topicmeta>
+<topicref navtitle="com.ibm.streamsx.document.extract" locktitle="yes" format="dita" href="com.ibm.streamsx.document.extract$.xml" toc="yes" linking="none"/>
+</topichead><topichead><topicmeta><navtitle>Primitive Operators</navtitle></topicmeta>
+<topicref navtitle="com.ibm.streamsx.document.extract::DocumentSource" locktitle="yes" format="dita" href="com.ibm.streamsx.document.extract$DocumentSource.xml" toc="yes" linking="none"/>
+</topichead><topichead><topicmeta><navtitle>SPL Files</navtitle></topicmeta>
+<topicref navtitle="com.ibm.streamsx.document.extract/Types.spl" locktitle="yes" format="dita" href="com.ibm.streamsx.document.extract$Types$spl.xml" toc="yes" linking="none"/>
+</topichead><topichead><topicmeta><navtitle>References</navtitle></topicmeta>
+<topicref navtitle="Operator Model" locktitle="yes" format="dita" href="OperatorModel.xml" toc="yes" linking="none"/>
+</topichead></topicref></map>
+

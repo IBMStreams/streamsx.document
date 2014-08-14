@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
+"/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
+<reference id="spldoc_toolkit__toolkit__1.0.0">
+<title outputclass="spltoolkitname">com.ibm.streamsx.document</title>
+<refbody>
+<section>
+<title outputclass="splhead-1">General Information</title>
+
+<dl>
+  <dlentry>
+  <dt>Version</dt>
+  <dd>1.0.0</dd>
+  </dlentry>
+  <dlentry>
+  <dt>Required Product Version</dt>
+  <dd>3.2.1.0</dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+  <title outputclass="splhead-1">Namespaces</title>
+<dl>
+   <dlentry>
+     <dt outputclass="splpart"><xref href="com.ibm.streamsx.document.extract$.xml">com.ibm.streamsx.document.extract</xref></dt>
+  <dd>SPL Files
+       <sl>
+         <sli><xref href="com.ibm.streamsx.document.extract$Types$spl.xml">com.ibm.streamsx.document.extract/Types.spl</xref></sli>
+       </sl>
+   </dd>
+   <dd>Operators
+       <sl>
+         <sli><xref href="com.ibm.streamsx.document.extract$DocumentSource.xml">DocumentSource</xref></sli>
+       </sl>
+   </dd>
+    <dd>Types
+       <sl>
+         <sli><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__DocumentData_t">DocumentData_t</xref></sli>
+         <sli><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__DocumentMetadata_t">DocumentMetadata_t</xref></sli>
+         <sli><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__Document_t">Document_t</xref></sli>
+       </sl>
+    </dd>
+     </dlentry></dl>
+</section>
+<section>
+  <title outputclass="splhead-1">References</title>
+    <sl>
+    <sli><xref href="OperatorModel.xml">Operator Model</xref></sli>
+    </sl>
+</section>
+</refbody>
+</reference>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
+"/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
+<reference id ="spldoc_compilationunit__">
+<title>Types.spl</title>
+<refbody>
+<section>
+<p>
+<xref href="toolkit.xml">
+com.ibm.streamsx.document
+</xref>
+-&gt; <xref href="com.ibm.streamsx.document.extract$.xml">com.ibm.streamsx.document.extract</xref>-&gt; Types.spl</p>
+</section>
+<section>
+  <title outputclass="splhead-1">Content</title>
+    <dl>
+    <dlentry><dt></dt><dd></dd></dlentry>
+    <dlentry>
+      <dt outputclass="splhead-2">Types</dt>
+      <dd><dl>
+  <dlentry>
+     <dt><xref href="#spldoc_compilationunit__/type__DocumentMetadata_t">DocumentMetadata_t</xref></dt>
+     <dd>Document metadata-only structure </dd>
+  </dlentry>
+  <dlentry>
+     <dt><xref href="#spldoc_compilationunit__/type__DocumentData_t">DocumentData_t</xref></dt>
+     <dd>Document data structure </dd>
+  </dlentry>
+  <dlentry>
+     <dt><xref href="#spldoc_compilationunit__/type__Document_t">Document_t</xref></dt>
+     <dd>Full(data and metadata) document structure </dd>
+  </dlentry>
+     </dl></dd>
+    </dlentry>
+     </dl>
+</section>
+<section>
+  <title outputclass="splhead-1">Types</title>
+</section>
+<section id="type__DocumentMetadata_t">
+  <title outputclass="splpart">DocumentMetadata_t</title>
+</section><section>
+
+<p>Document metadata-only structure 
+</p>
+</section>
+<section>
+   <p>
+<tt>DocumentMetadata_t = rstring docId, list&lt;ustring&gt; msgs, map&lt;ustring, list&lt;ustring&gt;&gt; props;</tt>
+   </p>
+</section>
+<section id="type__DocumentData_t">
+  <title outputclass="splpart">DocumentData_t</title>
+</section><section>
+
+<p>Document data structure 
+</p>
+</section>
+<section>
+   <p>
+<tt>DocumentData_t = ustring;</tt>
+   </p>
+</section>
+<section id="type__Document_t">
+  <title outputclass="splpart">Document_t</title>
+</section><section>
+
+<p>Full(data and metadata) document structure 
+</p>
+</section>
+<section>
+   <p>
+<tt>Document_t = rstring docId, list&lt;ustring&gt; msgs, map&lt;ustring, list&lt;ustring&gt;&gt; props, DocumentData_t text;</tt>
+   </p>
+</section>
+</refbody>
+</reference>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
+"/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
+<reference id ="X">
+<title> Namespace <tt>com.ibm.streamsx.document.extract</tt></title>
+<abstract>
+
+
+</abstract>
+<refbody>
+<section>
+<p>
+<xref href="toolkit.xml">
+com.ibm.streamsx.document
+</xref>
+-&gt; com.ibm.streamsx.document.extract</p>
+</section>
+<section>
+  <title outputclass="splhead-1">Operators</title>
+<sl>
+<sli><b><xref href="com.ibm.streamsx.document.extract$DocumentSource.xml">DocumentSource</xref></b>: The DocumentSource operator extracts metadata and text from binary documents.For that purpose the operator utilizes different open source libraries to allow parsing of different document types. Out-of-the-box the operator utilizes Tika, PDFBox, JUnrar and TrueZip. <b>Rrerequisities</b>  The operator requires <b>DE_TOOLKIT_HOME</b> envrionment variable to be defined.  The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path. <b>Examples</b> In the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata. <![CDATA[  stream<Document_t> RARDocumentSource = DocumentSource()
+  {
+         param
+             file : "docs/doc_samples.rar";
+	            extractionType : "All";
+	            returnEmbeddedDocuments: true;
+  }
+]]>
+</sli>
+</sl>
+</section>
+<section>
+  <title outputclass="splhead-1">Types</title>
+<sl>
+<sli><b><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__DocumentData_t">DocumentData_t</xref></b>: Document data structure 
+</sli>
+<sli><b><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__DocumentMetadata_t">DocumentMetadata_t</xref></b>: Document metadata-only structure 
+</sli>
+<sli><b><xref href="com.ibm.streamsx.document.extract$Types$spl.xml#spldoc_compilationunit__/type__Document_t">Document_t</xref></b>: Full(data and metadata) document structure 
+</sli>
+    </sl>
+</section>
+</refbody>
+</reference>
+
