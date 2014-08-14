@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extractorConfig> 
+	<extractorType>
+		<extractorName>TrueZip</extractorName>
+		<mimetype>application/x-gzip</mimetype>
+		<mimetype>application/x-tar</mimetype>
+		<mimetype>application/zip</mimetype>
+		<mimetype>application/tar</mimetype>
+		<mimetype>application/java-archive</mimetype>
+		<mimetype>application/bzip2</mimetype>
+		<mimetype>application/gzip</mimetype>	
+	</extractorType>
+	<extractorType>
+		<extractorName>Tika</extractorName>		
+		<mimetype>application/vnd.lotus-freelance</mimetype>
+		<mimetype>application/x-lotus-123</mimetype>
+		<mimetype>application/vnd.lotus-wordpro</mimetype>
+		<mimetype>application/rtf</mimetype>
+		<mimetype>application/x-msexcel</mimetype>
+		<mimetype>application/msword</mimetype>
+		<mimetype>application/x-mspowerpoint</mimetype>
+		<mimetype>application/x-js-taro</mimetype>
+		<mimetype>application/msoffice</mimetype>
+		<mimetype>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</mimetype>
+		<mimetype>application/vnd.openxmlformats-officedocument.presentationml.presentation</mimetype>
+		<mimetype>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mimetype>
+		<mimetype>application/vnd.oasis.opendocument</mimetype>   <!--  (when the exact open-office type is unknown) -->
+		<mimetype>application/vnd.oasis.opendocument.database</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.formula</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.graphics</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.text-master</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.presentation</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.spreadsheet</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.text</mimetype>
+		<mimetype>application/vnd.oasis.opendocument.text-web</mimetype>
+		<mimetype>application/vnd.visio</mimetype>								
+		<mimetype>text/html</mimetype>
+		<mimetype>audio/mpeg</mimetype>
+		<mimetype>application/x-acad</mimetype>		
+	</extractorType>
+	<extractorType>
+		<extractorName>PDFBox</extractorName>
+		<mimetype>application/pdf</mimetype>
+	</extractorType>
+	<extractorType>
+		<extractorName>PlainText</extractorName>
+		<mimetype>text/plain</mimetype>
+		<mimetype>application/xml</mimetype>
+	</extractorType>
+	
+	<extractorType>
+	    <extractorName>Junrar</extractorName>
+	    <mimetype>application/x-rar-compressed</mimetype>
+	</extractorType>
+	
+	<defaultExtractor>
+		<extractorName>Tika</extractorName>										
+	</defaultExtractor>	
+
+	<extractorType>
+		<extractorName>terminator</extractorName>
+		<mimetype>application/octet-stream</mimetype>
+		<mimetype>image/gif</mimetype>		
+		<mimetype>image/jpeg</mimetype>		
+		<mimetype>image/bmp</mimetype>
+		<mimetype>image/tiff</mimetype>
+		<mimetype>image/png</mimetype>
+		<mimetype>image/x-xpixmap</mimetype>
+		<mimetype>video/mpeg</mimetype>
+		<mimetype>video/quicktime</mimetype>
+		<mimetype>video/x-msvideo</mimetype>
+		<mimetype>audio/basic</mimetype>
+		<mimetype>audio/x-aiff</mimetype>
+		<mimetype>audio/x-wav</mimetype>
+		<mimetype>application/x-framemaker</mimetype>
+		<mimetype>application/x-7z-compressed</mimetype>
+		<mimetype>application/x-cfs</mimetype>
+		<mimetype>application/wmf</mimetype>
+		<mimetype>application/msaccess</mimetype>
+		<mimetype>application/vnd.fdf</mimetype>
+		<mimetype>unknown</mimetype>
+	</extractorType>	
+</extractorConfig> 

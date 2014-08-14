@@ -1,0 +1,15 @@
+<ExtractorConfiguration>
+  <name>PDFBox</name>
+  <className>com.ibm.streamsx.document.extract.plugins.PDFBox.PDFBoxExtractor</className>  
+  
+  <!-- Uncomment these lines to get the output of the PdfBox log4j logger (and initialize this logger in your program)
+
+   <customSettings>
+   <entry>
+      <string>EnablePdfBoxLogger</string>
+      <string>true</string>
+    </entry>
+ </customSettings>
+ -->
+ 
+</ExtractorConfiguration>

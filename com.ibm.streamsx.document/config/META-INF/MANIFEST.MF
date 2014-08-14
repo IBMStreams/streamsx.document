@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: pxa6460sr9fp1-20110208_03 (SR9 FP1) (IBM Corporation)
+
+Name: com/ibm/streamsx/document/extractor
+Specification-Title: Text Extractor for InfoSphere Streams
+Specification-Version: 1.0.0.0, 352, 2013/02/13 08:59:27.174
+Specification-Vendor: IBM Corporation
+Implementation-Title: Text Extractor
+Implementation-Version: 1.0.0.0, 352, 2013/02/13 08:59:27.174
+Implementation-Vendor: IBM Corporation
+Implementation-Vendor-Id: com.ibm.streamsx.document.extract
+Copyright-Info: Licensed Materials - Property of IBM .  � Copyright 
+ IBM Corp. 2012     US Government Users Restricted Rights - Use, dupli
+ cation or disclosure restricted by GSA ADP Schedule.  Contract with I
+ BM Corporation
+
