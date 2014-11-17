@@ -42,7 +42,7 @@ public class DocumentSourceConstants {
 
 
 
-	public static final String CONFIG_FOLDER_PARAM_DESCRIPTION = "Allows to specify config folder absolute location. If not specified ${DE_TOOLKIT_HOME}/config folder" +
+	public static final String CONFIG_FOLDER_PARAM_DESCRIPTION = "Allows to specify config folder absolute location. If not specified $DE_TOOLKIT_HOME/config folder" +
 																 " is used by the operator.";
 	
 	public static final String BIN_DOC_ATTR_PARAM_DESCRIPTION = "Input schema attribute name with a binary document data.";
