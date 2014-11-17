@@ -23,26 +23,6 @@ public class DocumentSourceUtils {
 	private final static Logger logger = Logger.getLogger(DocumentSourceUtils.class.getName());
 
 	/**
-	 * Gets operator parameter value from context
-	 * @param context - operator context
-	 * @param paramName - parameter name
-	 * @param paramDefaultValue - default parameter value
-	 * @return
-	 */
-	public static Object getParamValue(OperatorContext context, String paramName, Object paramDefaultValue) {
-		return  context.getParameterValues(paramName).size() > 0 ? 
-				context.getParameterValues(paramName).get(0): paramDefaultValue;
-	}
-
-	public static String getStringParamValue(OperatorContext context, String paramName, Object paramDefaultValue) {
-		return  (String)getParamValue(context, paramName, paramDefaultValue);
-	}
-
-	public static boolean getBoolParamValue(OperatorContext context, String paramName, boolean paramDefaultValue) {
-		return Boolean.parseBoolean((String)getParamValue(context, paramName,  String.valueOf(paramDefaultValue)));		
-	}
-
-	/**
 	 * Gets config folder path
 	 * @return config folder path
 	 */
@@ -54,10 +34,7 @@ public class DocumentSourceUtils {
       logger.trace("DE_TOOLKIT_HOME environment variable value is " + DtxToolkitHome);
       if (DtxToolkitHome != null) {
         res = DtxToolkitHome + "/config";
-      }
-      else {
-    	throw new Exception(DocumentSourceConstants.DE_TOOLKIT_HOME_VAR_NAME + " unset. Define 'configFolder' operator param or set DE_TOOLKIT_HOME environment variable.");
-      }
+      }      
       return res;
     }
     
@@ -106,18 +83,7 @@ public class DocumentSourceUtils {
       }
     }
 
-	/**
-	 * Checks file existence
-	 * @param file
-	 */
-    public static void checkFileExistance(String file) throws IOException {
-    	File f = new File(file);
-    	if (!f.isFile()) 
-    		throw new IOException("Can't access input file '" + file + "'");
-    	if (!f.canRead()) 
-    		throw new IOException("Can't read input file '" + file + "'");		
-	}
-    
+	
     
 
 }

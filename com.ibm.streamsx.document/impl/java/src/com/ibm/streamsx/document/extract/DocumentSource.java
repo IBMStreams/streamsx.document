@@ -3,6 +3,8 @@
 
 package com.ibm.streamsx.document.extract;
 
+import com.ibm.streamsx.document.DocumentToolkitUtils;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -76,7 +78,7 @@ import com.ibm.streamsx.document.extract.core.logging.DECoreLogger;
  * concurrently with each other, which lead to these methods being called
  * concurrently by different threads.
  * </p>
- */
+ */  
 @PrimitiveOperator(name = "DocumentSource", namespace = "com.ibm.streamsx.document.extract", description = DocumentSourceConstants.OPERATOR_DESC,
 // the parameter is a workaround for PDF Box bug on big documents
 vmArgs = { "-Djava.util.Arrays.useLegacyMergeSort=true" })
@@ -84,7 +86,7 @@ vmArgs = { "-Djava.util.Arrays.useLegacyMergeSort=true" })
 @OutputPortSet(description = "Mandatory output port for metadata and text content", cardinality = 1, optional = false, windowPunctuationOutputMode = WindowPunctuationOutputMode.Generating)
 @Libraries({ "impl/lib/*", "impl/ext/lib/*", "config/", "lib/*" })
 public class DocumentSource extends AbstractOperator {
-
+  
 	
 
 	private String configFolder = null;
@@ -95,6 +97,8 @@ public class DocumentSource extends AbstractOperator {
 	private boolean returnSystemMessages = false;
 	private String binaryDocumentAttr = null;
 	private String extractedDocumentAttr = null;
+	// Max text size per tuple
+	private int maxTextSize = 1024;
 
 	private TraceInfoLevel deCoreLogLevel = TraceInfoLevel.ERROR;
 
@@ -128,22 +132,27 @@ public class DocumentSource extends AbstractOperator {
 				+ context.getPE().getPEId() + " in Job: "
 				+ context.getPE().getJobId());
 
-		configFolder = DocumentSourceUtils.getStringParamValue(context,
+		configFolder = DocumentToolkitUtils.getStringParamValue(context,
 				DocumentSourceConstants.CONFIG_FOLDER_PNAME,
 				DocumentSourceUtils.getDefaultConfigFolderPath());
-		extractionType = EnumSupportedExtractionTypes.fromString(DocumentSourceUtils
+		
+		if (configFolder == null)  {
+	    	throw new Exception(DocumentSourceConstants.DE_TOOLKIT_HOME_VAR_NAME + " unset. Define 'configFolder' operator param or set DE_TOOLKIT_HOME environment variable.");
+	    }
+		
+		extractionType = EnumSupportedExtractionTypes.fromString(DocumentToolkitUtils
 				.getStringParamValue(context,
 						DocumentSourceConstants.EXTRACTION_TYPE_PNAME,
 						DocumentSourceConstants.EXTRACTION_TYPE_DEFAULT));
-		returnFileDetails = DocumentSourceUtils.getBoolParamValue(
+		returnFileDetails = DocumentToolkitUtils.getBoolParamValue(
 				context, DocumentSourceConstants.RETURN_FILE_DETAILS_PNAME,
 				false);
-		returnEmbeddedDocuments = DocumentSourceUtils.getBoolParamValue(
+		returnEmbeddedDocuments = DocumentToolkitUtils.getBoolParamValue(
 				context, DocumentSourceConstants.RETURN_EMBEDDED_DOCUMENTS_PNAME,
 				false);			
-		extractorName = DocumentSourceUtils.getStringParamValue(context,
+		extractorName = DocumentToolkitUtils.getStringParamValue(context,
 				DocumentSourceConstants.EXTRACTOR_NAME_PNAME, null);		
-		returnSystemMessages = DocumentSourceUtils.getBoolParamValue(
+		returnSystemMessages = DocumentToolkitUtils.getBoolParamValue(
 				context, DocumentSourceConstants.RETURN_SYSTEM_MESSAGES_PNAME,
 				false);
 				
@@ -165,9 +174,12 @@ public class DocumentSource extends AbstractOperator {
 		if (inPorts == 0) {
 			// file parameter is mandatory for source operator
 			// with no input ports only
-			file = DocumentSourceUtils.getStringParamValue(context, DocumentSourceConstants.IN_FILE_PNAME, null);
+			file = DocumentToolkitUtils.getStringParamValue(context, DocumentSourceConstants.IN_FILE_PNAME, null);
 			// check input file existance
-			DocumentSourceUtils.checkFileExistance(file);
+			if (!DocumentToolkitUtils.fileExistsAndReadable(file)) {
+				throw new Exception("Can't access input file '" + file + "'");
+			}
+				
 
 			/*
 			 * Create the thread for producing tuples if required. The thread is
@@ -413,7 +425,7 @@ public class DocumentSource extends AbstractOperator {
 						+ props.getAllProperties() + "'");
 				if ((this.extractionType
 						.equals(EnumSupportedExtractionTypes.Metadata))
-						|| ((props != null)
+						|| ((props != null) && options.getReturnEmbeddedDocuments() 
 								&& (props.getEmbeddedFilesNumber() != null) && (props
 								.getEmbeddedFilesNumber().intValue() > 0))) {
 						logger.trace("Submitting document metadata '" + outTuple + "'");
@@ -427,23 +439,43 @@ public class DocumentSource extends AbstractOperator {
 					logger.trace("Populating out tuple with text for document id '"
 							+ documentId + "'");
 
-					InputStream txt = resIter.getCurrentTextElement();
+					InputStream txt = resIter.getCurrentTextElement(5 * 1024 * 1024 * 1024);
 					BufferedReader br = new BufferedReader(new InputStreamReader(txt));
-					String line;
+					String line;		
+					// TODO: consider to make line separator configurable 
 					while ((line = br.readLine()) != null) {
-						textBuffer.append(line);
+						textBuffer.append(line + System.lineSeparator());
 					}
-					documentData.put("text", textBuffer.toString());
-					DocumentSourceUtils.populateOutTuple(this.extractedDocumentAttr, outTuple,tuple, documentData);
-					logger.trace("Extract document tuple has been created succesfully...");
-					logger.trace("Submitting document '" + outTuple + "'");
-					out.submit(outTuple);
 					
-					textBuffer.delete(0, textBuffer.length());
+					// text buffer is full					
+					if (textBuffer.toString().getBytes().length >= maxTextSize) {
+						documentData.put("text", textBuffer.toString());
+						DocumentSourceUtils.populateOutTuple(this.extractedDocumentAttr, outTuple,tuple, documentData);
+						logger.trace("Current text buffer size is " + textBuffer.toString().getBytes().length);
+						// submit out tuple
+						logger.trace("Submitting document '" + outTuple + "'");
+						out.submit(outTuple);
+						// clean buffer
+						textBuffer.delete(0, textBuffer.length());
+					}
+					
 				}
+			
 			}
 			resIter.advance();
+			// document has ended and buffer is not empty
+			if (!resIter.hasCurrentElement() && textBuffer.toString().getBytes().length > 0) {
+				documentData.put("text", textBuffer.toString());
+				DocumentSourceUtils.populateOutTuple(this.extractedDocumentAttr, outTuple,tuple, documentData);
+				// submit out tuple
+				logger.trace("Submitting document '" + outTuple + "'");
+				out.submit(outTuple);
+				// clean buffer
+				textBuffer.delete(0, textBuffer.length());				
+			}
 		}
+	
+		
 		if (submitFinal) {
 			logger.trace("Complete - sending window & final marks");
 			out.punctuate(StreamingData.Punctuation.WINDOW_MARKER);
@@ -739,6 +771,15 @@ public class DocumentSource extends AbstractOperator {
 
 	public String getExtractedDocumentAttr() {
 		return this.extractedDocumentAttr;
+	}
+
+	@Parameter(name = "maxTextSize", description = DocumentSourceConstants.MAX_TEXT_SIZE_PARAM_DESCRIPTION, optional = true)
+	public void setMaxTextSize(int maxTextSize) {
+		this.maxTextSize = maxTextSize;
+	}
+
+	public int getMaxTextSize() {
+		return this.maxTextSize;
 	}
 
 	enum EnumSupportedExtractionTypes {

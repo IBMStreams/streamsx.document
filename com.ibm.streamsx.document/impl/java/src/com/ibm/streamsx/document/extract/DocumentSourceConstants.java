@@ -31,7 +31,7 @@ public class DocumentSourceConstants {
 								               "\\n\\n The operator requires DE_TOOLKIT_HOME envrionment variable to be defined." +
 								               "\\n The environment variable should be set with the com.ibm.streamsx.document toolkit absolute path." +
 								               "\\n\\n**Examples**" + 
-								               "\\n\\nIn the following example, the DirectorySource operator extracts documents from archived (RAR) file including document content and metadata." +								               
+								               "\\n\\nIn the following example, the DocumentSource operator extracts documents from archived (RAR) file including document content and metadata." +								               
 								               "\\n\\n      stream<Document_t> RARDocumentSource = DocumentSource()" +
 								       		   "\\n\\n      {" +
 								       		   "\\n\\n             param" +
@@ -61,4 +61,5 @@ public class DocumentSourceConstants {
 	public static final String EXTRACTOR_NAME_PARAM_DESCRIPTION = "By default the operator selects extractor per document according to mime-type to extractor mapping " +
 																  " specified in the config/extractor_mapping.xml file. The parameter allows to overwrite the mapping by explicit " +
 																  " extractor name specification.";
+	public static final String MAX_TEXT_SIZE_PARAM_DESCRIPTION = "Max size of text per tuple in bytes.";
 }
