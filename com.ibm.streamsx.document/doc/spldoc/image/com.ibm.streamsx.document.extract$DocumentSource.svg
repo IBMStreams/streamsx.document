@@ -68,13 +68,13 @@
       ><set attributeName="visibility" from="hidden" end="sdt1.mouseout" to="visible" begin="sdt1.mouseover"
     /></g
     ><g visibility="hidden" style="stroke:none;font-style:italic;font-size:12px;font-family:&apos;Helvetica&apos;,&apos;SansSerif&apos;;"
-    ><rect x="47.65" y="58.0" width="424.93997" style="fill:rgb(230,230,255);stroke:rgb(0,0,80);" rx="2.0" ry="2.0" height="47.0"
+    ><rect x="47.65" y="58.0" width="429.17996" style="fill:rgb(230,230,255);stroke:rgb(0,0,80);" rx="2.0" ry="2.0" height="47.0"
       /><text x="48.65" y="71.0"
       >Optional: binaryDocumentAttr, configFolder, extractedDocumentAttr, </text
       ><text x="48.65" y="86.0"
-      >extractionType, extractorName, file, returnEmbeddedDocuments, </text
+      >extractionType, extractorName, file, maxTextSize, </text
       ><text x="48.65" y="101.0"
-      >returnFileDetails, returnSystemMessages</text
+      >returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</text
       ><set attributeName="visibility" from="hidden" end="sdt2.mouseout" to="visible" begin="sdt2.mouseover"
     /></g
     ><g visibility="hidden" style="stroke:none;font-style:italic;font-size:12px;font-family:&apos;Helvetica&apos;,&apos;SansSerif&apos;;"

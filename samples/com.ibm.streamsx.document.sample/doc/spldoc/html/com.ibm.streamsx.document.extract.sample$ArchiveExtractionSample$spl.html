@@ -42,7 +42,7 @@ com.ibm.streamsx.document.samples
   
      <dt class="dt dlterm"><a class="xref" href="#spldoc_compilationunit____composite_operator__ArchiveExtractionSample">composite ArchiveExtractionSample</a></dt>
 
-     <dd class="dd"/>
+     <dd class="dd">The sample demonstrates DocumentSource operator usage for extraction of embedded documents from rar archive.</dd>
 
   
      </dl>
@@ -59,6 +59,30 @@ com.ibm.streamsx.document.samples
 
 <div class="section" id="spldoc_compilationunit____composite_operator__ArchiveExtractionSample"><h2 class="title sectiontitle splpart">composite ArchiveExtractionSample</h2>
   
+</div>
+
+<div class="section">
+
+<p class="p">The sample demonstrates DocumentSource operator usage for extraction of embedded documents from rar archive. 
+</p>
+
+<p class="p">The test archive file contains 4 files of different types (doc, pdf, xls, ppt): 
+</p>
+
+<div class="p">
+<pre class="pre codeblock">
+	helloWORD.doc      
+	IBMInfoSphereStreams-QuickStartGuide.pdf 
+	seat_plan.xls                           
+	StreamsPresentation.ppt 
+</pre>
+
+
+</div>
+
+<p class="p">  DocumentSource operator returns four tuples (tuple per document).  Each tuple includes both document content (text) as well as document metadata  (file location, mimetype,etc). 
+</p>
+
 </div>
 
 <div class="section">

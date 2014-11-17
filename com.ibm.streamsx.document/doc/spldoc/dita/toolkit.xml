@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//ENs"
 "/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/reference.dtd">
-<reference id="spldoc_toolkit__toolkit__1.0.1">
+<reference id="spldoc_toolkit__toolkit__1.0.3">
 <title>IBMStreams com.ibm.streamsx.document Toolkit</title>
 <shortdesc outputclass="spltoolkitname">com.ibm.streamsx.document</shortdesc>
 <refbody>
 <section>
 <title outputclass="splhead-1">General Information</title>
 
+<p>The toolkit is a container for document processing functionality.
+</p>
 <dl>
   <dlentry>
   <dt>Version</dt>
-  <dd>1.0.1</dd>
+  <dd>1.0.3</dd>
   </dlentry>
   <dlentry>
   <dt>Required Product Version</dt>

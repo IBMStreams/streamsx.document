@@ -55,7 +55,7 @@ com.ibm.streamsx.document
  </dlentry>
  <dlentry>
   <dt>Parameters</dt>
-  <dd>This operator supports 9 parameters. (<tt>binaryDocumentAttr, configFolder, extractedDocumentAttr, extractionType, extractorName, file, returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</tt>)
+  <dd>This operator supports 10 parameters. (<tt>binaryDocumentAttr, configFolder, extractedDocumentAttr, extractionType, extractorName, file, maxTextSize, returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</tt>)
 </dd>
  </dlentry>
  <dlentry>
@@ -142,7 +142,7 @@ com.ibm.streamsx.document
 </dl>
 </section>
 <section>
-<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters">Parameters</xref></b></p>This operator supports 9 parameters.<dl>
+<p outputclass="splhead-1"><b><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters">Parameters</xref></b></p>This operator supports 10 parameters.<dl>
 <dlentry>
 <dt id="parameter_binaryDocumentAttr"><tt>binaryDocumentAttr</tt></dt>
 <dd>
@@ -258,6 +258,27 @@ com.ibm.streamsx.document
  <dd>
   <sl>
   <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+  </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+  </sl>
+ </dd>
+</dlentry>
+</dl>
+</dd>
+</dlentry>
+<dlentry>
+<dt id="parameter_maxTextSize"><tt>maxTextSize</tt></dt>
+<dd>
+<p>Max size of text per tuple in bytes.
+</p><dl>
+<dlentry>
+ <dt>Properties </dt>
+ <dd>
+  <sl>
+  <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: int32
   </sli>
      <sli><xref href="OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
      </sli>

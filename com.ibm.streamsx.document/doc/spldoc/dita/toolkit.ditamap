@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//ENs"
 "/opt/ibm/InfoSphereStreams/ext/dita-ot/dtd/technicalContent/dtd/map.dtd">
-<map id="spldoc_map__toolkit__1.0.1">
+<map id="spldoc_map__toolkit__1.0.3">
 <title>com.ibm.streamsx.document</title>
-<topicref navtitle="com.ibm.streamsx.document 1.0.1" locktitle="yes" href="toolkit.xml" toc="yes" linking="normal">
+<topicref navtitle="com.ibm.streamsx.document 1.0.3" locktitle="yes" href="toolkit.xml" toc="yes" linking="normal">
 <topichead><topicmeta><navtitle>Namespaces</navtitle></topicmeta>
 <topicref navtitle="com.ibm.streamsx.document.extract" locktitle="yes" format="dita" href="com.ibm.streamsx.document.extract$.xml" toc="yes" linking="none"/>
 </topichead><topichead><topicmeta><navtitle>Primitive Operators</navtitle></topicmeta>

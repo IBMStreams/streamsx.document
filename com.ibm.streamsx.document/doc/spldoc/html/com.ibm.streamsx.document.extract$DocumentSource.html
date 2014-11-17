@@ -87,7 +87,7 @@ com.ibm.streamsx.document
  
   <dt class="dt dlterm">Parameters</dt>
 
-  <dd class="dd">This operator supports 9 parameters. (<tt class="ph tt">binaryDocumentAttr, configFolder, extractedDocumentAttr, extractionType, extractorName, file, returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</tt>)
+  <dd class="dd">This operator supports 10 parameters. (<tt class="ph tt">binaryDocumentAttr, configFolder, extractedDocumentAttr, extractionType, extractorName, file, maxTextSize, returnEmbeddedDocuments, returnFileDetails, returnSystemMessages</tt>)
 </dd>
 
  
@@ -218,7 +218,7 @@ com.ibm.streamsx.document
 
 <div class="section">
 <p class="p splhead-1"><strong class="ph b"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters">Parameters</a></strong></p>
-This operator supports 9 parameters.<dl class="dl">
+This operator supports 10 parameters.<dl class="dl">
 
 <dt class="dt dlterm" id="spldoc_operator__com.ibm.streamsx.document.extract__DocumentSource__parameter_binaryDocumentAttr"><tt class="ph tt">binaryDocumentAttr</tt></dt>
 
@@ -387,6 +387,37 @@ This operator supports 9 parameters.<dl class="dl">
  <dd class="dd">
   <ul class="sl simple">
   <li class="sli"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: rstring
+  </li>
+
+     <li class="sli"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
+     </li>
+
+     <li class="sli"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
+     </li>
+
+  </ul>
+
+ </dd>
+
+
+</dl>
+
+</dd>
+
+
+
+<dt class="dt dlterm" id="spldoc_operator__com.ibm.streamsx.document.extract__DocumentSource__parameter_maxTextSize"><tt class="ph tt">maxTextSize</tt></dt>
+
+<dd class="dd">
+<p class="p">Max size of text per tuple in bytes.
+</p>
+<dl class="dl">
+
+ <dt class="dt dlterm">Properties </dt>
+
+ <dd class="dd">
+  <ul class="sl simple">
+  <li class="sli"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: int32
   </li>
 
      <li class="sli"><a class="xref" href="OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
