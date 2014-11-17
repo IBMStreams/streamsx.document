@@ -22,10 +22,23 @@ composite ComplexInOut
 		
 	graph
 		
-		stream<blob document> BinaryDoc = FileSource()
+		stream<rstring name> DocName = DirectoryScan()   {
+		            param
+		                directory: "./docs/";
+		                //pattern: ".*\\.pptx$";
+		                //pattern: ".*\\.docx$";
+		                //pattern: ".*\\.xlsx$";
+		                //pattern: ".*\\.xls$";
+		                //pattern: ".*\\.pdf$";
+		                //pattern:"multiline.docx";
+		        }
+		
+		stream<blob document> BinaryDoc = FileSource(DocName)
 		{
 			param
-				file : "docs/seat_plan.xls" ;
+				//file : "docs/seat_plan.xls" ;
+				//file : "docs/multiline.docx" ;
+				//file : "docs/multioutTuple.docx" ;
 				format : block ;
 				blockSize : 10485799u ;
 		}
@@ -45,9 +58,9 @@ composite ComplexInOut
 				binaryDocumentAttr: "b"; // specify the name of the attribute containing the binary document
 				extractedDocumentAttr: "d"; // specify the name of the attribute of type Document_t that would be populated with an extraction results
 				extractionType: "All";	
-				returnSystemMessages: true;
-				returnFileDetails: true;			
-				returnEmbeddedDocuments: true;
+				returnSystemMessages: true;					
+				returnEmbeddedDocuments: false;
+				maxTextSize: 1024;
 		}
 		
 		() as DocDataAndMetadataSink = Custom(DocsFromBinary as Docs)
