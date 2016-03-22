@@ -6,8 +6,8 @@ Incubation for projects is covered here: https://github.com/IBMStreams/administr
 
 ## Status
 
-- [ ] :red_circle: Stable release(s)
-  * Status: **TBD**
+- [ ] :white_check_mark: Stable release(s)
+  * Status: Multiple releases already completed
 - [ ] :red_circle: Project is properly documented
   * Status: **TBD**
 - [ ] :red_circle: Project has samples and instructions to help users get started easily
